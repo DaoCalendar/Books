@@ -1,0 +1,22 @@
+{
+    "port": 8888,
+    "mongoose": {
+        "uri": "mongodb://localhost/books",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": 1
+                }
+            }
+        }
+    },
+    "session": {
+        "secret": "BookMaster",
+        "key": "sid",
+        "cookie": {
+            "path": "/",
+            "httpOnly": true,
+            "maxAge": null
+        }
+    }
+}

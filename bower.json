@@ -1,0 +1,21 @@
+{
+  "name": "Books",
+  "version": "0.0.1",
+  "homepage": "https://github.com/JobRGR/Workly",
+  "authors": [
+    "A-gambit <a.gambit.gregory@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_component",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "*"
+  }
+}
