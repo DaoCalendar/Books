@@ -41,3 +41,21 @@ function status(){
     var url = "/api/status";
     get(url);
 }
+
+function createBook(){
+    var data = {
+            author: "a.gambit@gamil.com",
+            name: "1111",
+            path: "1111",
+            img: "1111",
+            info: "1111"
+        },
+        url = "/api/create";
+
+    post(data, url);
+}
+
+function bookEdit(){
+    var url = "/api/edit-book";
+    get(url);
+}
