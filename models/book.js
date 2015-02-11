@@ -28,6 +28,8 @@ var schema = new Schema({
 
 schema.statics.create = function(name, author, path, img, info, callback) {
     var Book = this;
+    var User = require('./user').User;
+    var async = require('../node_modules/async');
 
     var book = new Book({
         name: name,
@@ -37,10 +39,27 @@ schema.statics.create = function(name, author, path, img, info, callback) {
         info: info
     });
 
-    book.save(function(err) {
-        if (err) return callback(err);
-        callback(null, book);
-    });
+    async.waterfall([
+        function(callback){
+            book.save(function(err) {
+                if (err) callback(err);
+                callback(null,book);
+            });
+        },
+        function(book,callback){
+            User.findOne({ mail: author},function (err,user){
+                if (err) callback(err);
+                callback(null, book, user);
+            });
+        },
+        function(book,user,callback){
+            var newUserBooks = user.books.push(book.id);
+            user.save(function(err){
+                    if (err) callback(err);
+                    callback(null, book);
+            });
+        }
+    ], callback);
 };
 
 schema.statics.edit =  function(req, callback) {

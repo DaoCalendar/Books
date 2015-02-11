@@ -25,8 +25,7 @@ var schema = new Schema({
     },
     books: {
         type:Array,
-        require: true,
-        default: [null]
+        require: true
     }
 });
 

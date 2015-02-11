@@ -7,7 +7,7 @@ exports.post = function(req, res, next) {
     var img = req.body.img;
     var info = req.body.info;
 
-    Book.create(name,author,function (err, book) {
+    Book.create(name, author, path, img, info,function (err, book) {
         var message = {
             "action":"book creating"
         };
@@ -15,11 +15,11 @@ exports.post = function(req, res, next) {
         if(err){
             message.message = err.message;
             return res.send(message);
-        };
+        }
 
         message['message'] = "ok";
         message['book'] = book;
 
         return res.send(message);
     });
-}
+};

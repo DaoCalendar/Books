@@ -14,7 +14,7 @@ function get(url){
 
 function signin(){
     var data = {
-            mail: "a.gambit@gamil.com",
+            mail: "abcd.gambit@gamil.com",
             password: "1111"
         },
         url = "/api/sign-in";
@@ -24,7 +24,7 @@ function signin(){
 
 function signup(){
     var data = {
-            mail: "a.gambit@gamil.com",
+            mail: "abcd.gambit@gamil.com",
             password: "1111"
         },
         url = "/api/sign-up";
@@ -44,7 +44,7 @@ function status(){
 
 function createBook(){
     var data = {
-            author: "a.gambit@gamil.com",
+            author: "abcd.gambit@gamil.com",
             name: "1111",
             path: "1111",
             img: "1111",
