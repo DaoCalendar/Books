@@ -9,11 +9,11 @@ exports.post = function(req, res, next) {
         if(err){
             message.message = err.message;
             return res.send(message);
-        };
+        }
 
         message['message'] = "ok";
         message['book'] = book;
 
         return res.send(message);
     });
-}
+};

@@ -63,16 +63,16 @@ schema.statics.create = function(name, author, path, img, info, callback) {
 };
 
 schema.statics.edit =  function(req, callback) {
-    if(!req.user) return callback(new AuthError("User is not Authorized"));
-    if(req.user != req.body.author) return callback(new AuthError("Only author can edit"));
-
+    var Book = this;
     var editBook = req.body;
     var book = Book.findById(req.body.id, function(err, doc){
+        if (err) return callback(err);
         for (var k in editBook)
-            doc[k] = editBook[k];
+            if (k!="id")
+                doc[k] = editBook[k];
         doc.save(function(err) {
             if (err) return callback(err);
-                callback(null, user);
+            callback(null, doc);
         });
     });
 };

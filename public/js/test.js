@@ -56,6 +56,14 @@ function createBook(){
 }
 
 function bookEdit(){
-    var url = "/api/edit-book";
-    get(url);
+    var data = {
+            id: "54dbbaa5203c9c8c1795cc39",
+            name: "1111",
+            path: "1111",
+            img: "1111",
+            info: "1111"
+        },
+        url = "/api/edit-book";
+
+    post(data, url);
 }
